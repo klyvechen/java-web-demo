@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: query_route
+        uri: https://example.org
+        predicates:
+        - Query=green
+      - id: test_route
+        uri: https://www.google.com
+        predicates:
+        - Query=url,google
+      - id: qq_route
+        uri: https://www.qq.com
+        predicates:
+        - Query=qq
