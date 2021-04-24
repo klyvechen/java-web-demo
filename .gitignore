@@ -1,2 +1,9 @@
 .idea
 security-demo/target
+micro-service-demo/resources/nacos-2.0.0
+*.iml
+*.dat
+*.class
+*.log
+*.current
+*.out
