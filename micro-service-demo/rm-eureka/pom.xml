@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>rm.project</groupId>
-    <artifactId>rm-product</artifactId>
+    <artifactId>rm-eureka</artifactId>
     <version>0.0.1-TEST</version>
 
     <properties>
@@ -19,10 +19,21 @@
 
     <dependencies>
         <dependency>
-            <groupId>rm.project</groupId>
-            <artifactId>rm-common</artifactId>
-            <version>0.0.1-TEST</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.netflix.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

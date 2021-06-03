@@ -11,7 +11,11 @@
 
     <groupId>rm.project</groupId>
     <artifactId>rm-common</artifactId>
-    <version>${project.version}</version>
+    <version>0.0.1-TEST</version>
+
+    <properties>
+        <project.version>0.0.1-TEST</project.version>
+    </properties>
 
     <dependencies>
         <dependency>

@@ -10,35 +10,27 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>rm.project</groupId>
-    <artifactId>rm-gateway</artifactId>
+    <artifactId>rm-user-netflix</artifactId>
     <version>0.0.1-TEST</version>
 
     <properties>
         <project.version>0.0.1-TEST</project.version>
     </properties>
 
-    <dependencies>
+   <dependencies>
         <dependency>
-            <groupId>rm.project</groupId>
-            <artifactId>rm-common</artifactId>
-            <version>0.0.1-TEST</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
     </dependencies>
@@ -48,11 +40,12 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud.version}</version>
+                <version>${spring.cloud.netflix.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
 
 </project>

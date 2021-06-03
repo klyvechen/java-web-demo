@@ -9,20 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>rm.project</groupId>
-    <artifactId>rm-product</artifactId>
-    <version>0.0.1-TEST</version>
-
     <properties>
         <project.version>0.0.1-TEST</project.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>rm.project</groupId>
-            <artifactId>rm-common</artifactId>
-            <version>0.0.1-TEST</version>
-        </dependency>
-    </dependencies>
+    <groupId>rm.project</groupId>
+    <artifactId>rm-common-netflix</artifactId>
+    <version>0.0.1-TEST</version>
+
 
 </project>
