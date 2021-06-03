@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: rm-ribbon-consumer
+
+server:
+  port: 8080
+  servletPath: rm
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+  instance:
+    statusPageUrlPath: ${server.servletPath}/info
+    healthCheckUrlPath: ${server.servletPath}/health
