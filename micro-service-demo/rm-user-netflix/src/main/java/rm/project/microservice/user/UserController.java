@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Random;
 
 @RestController
 public class UserController {
     private Logger logger = LoggerFactory.getLogger(UserController.class);
-
 
     @Autowired
     private DiscoveryClient client;
@@ -23,13 +23,30 @@ public class UserController {
     private String serviceId;
 
     @RequestMapping("/index")
-    public String index() {
+    public String index() throws InterruptedException {
         List<ServiceInstance> serviceInstanceList = client.getInstances(serviceId);
+        int sleepTime = new Random().nextInt(3000);
+        logger.info("Sleep time:" + sleepTime);
+        Thread.sleep(sleepTime);
+        client.getServices().forEach(id -> {
+            client.getInstances(id).forEach(instance -> {
+                logger.info("/index, host:" + instance.getHost() + ", service_id:" + instance.getServiceId());
+            });
+        });
+        return "index";
+    }
+
+    @RequestMapping("/hello")
+    public String hello() throws InterruptedException {
+        List<ServiceInstance> serviceInstanceList = client.getInstances(serviceId);
+        int sleepTime = new Random().nextInt(3000);
+        logger.info("Sleep time:" + sleepTime);
+        Thread.sleep(sleepTime);
         client.getServices().forEach(id -> {
             client.getInstances(id).forEach(instance -> {
                 logger.info("/hello, host:" + instance.getHost() + ", service_id:" + instance.getServiceId());
             });
         });
-        return "index";
+        return "hello";
     }
 }
