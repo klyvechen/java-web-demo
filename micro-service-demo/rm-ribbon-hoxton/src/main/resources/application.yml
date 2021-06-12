@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: rm-ribbon-consumer
+  cloud:
+    circuitbreaker:
+      hystrix:
+        enabled: false
+
+server:
+  port: 8080
+  servletPath: rm
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+  instance:
+    statusPageUrlPath: ${server.servletPath}/info
+    healthCheckUrlPath: ${server.servletPath}/health
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1500

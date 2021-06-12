@@ -19,6 +19,7 @@
         <module>rm-eureka</module>
         <module>rm-user-netflix</module>
         <module>rm-ribbon</module>
+        <module>rm-ribbon-hoxton</module>
     </modules>
 
     <parent>
@@ -35,7 +36,7 @@
         <spring.cloud.alibaba.version>2.1.0.RELEASE</spring.cloud.alibaba.version>
         <spring.cloud.version>2020.0.2</spring.cloud.version>
         <project.version>0.0.1-TEST</project.version>
-        <spring.cloud.netflix.version>2020.0.2</spring.cloud.netflix.version>
+        <spring.cloud.hoxton.version>Hoxton.SR11</spring.cloud.hoxton.version>
     </properties>
 
     <dependencies>
