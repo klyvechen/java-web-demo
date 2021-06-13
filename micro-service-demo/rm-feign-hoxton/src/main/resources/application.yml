@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: rm-feign-consumer
+
+server:
+  port: 9001
+  servletPath: rm
+
+ribbon:
+  ConnectionTimeout: 500
+  ReadTimeout: 5000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+  instance:
+    statusPageUrlPath: ${server.servletPath}/info
+    healthCheckUrlPath: ${server.servletPath}/health

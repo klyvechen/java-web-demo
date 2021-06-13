@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +24,7 @@ public class UserController {
     @Value("${spring.application.name:}")
     private String serviceId;
 
-    @RequestMapping("/index")
+    @GetMapping("/index")
     public String index() throws InterruptedException {
         List<ServiceInstance> serviceInstanceList = client.getInstances(serviceId);
         int sleepTime = new Random().nextInt(3000);
@@ -36,7 +38,7 @@ public class UserController {
         return "index";
     }
 
-    @RequestMapping("/hello")
+    @GetMapping("/hello")
     public String hello() throws InterruptedException {
         List<ServiceInstance> serviceInstanceList = client.getInstances(serviceId);
         int sleepTime = new Random().nextInt(3000);
@@ -48,5 +50,19 @@ public class UserController {
             });
         });
         return "hello";
+    }
+
+    @GetMapping("/hello/{name}")
+    public String helloSir(@PathVariable("name") String name) throws InterruptedException {
+        List<ServiceInstance> serviceInstanceList = client.getInstances(serviceId);
+        int sleepTime = new Random().nextInt(3000);
+        logger.info("Sleep time:" + sleepTime);
+        Thread.sleep(sleepTime);
+        client.getServices().forEach(id -> {
+            client.getInstances(id).forEach(instance -> {
+                logger.info("/hello, host:" + instance.getHost() + ", service_id:" + instance.getServiceId());
+            });
+        });
+        return "hello " + name;
     }
 }
